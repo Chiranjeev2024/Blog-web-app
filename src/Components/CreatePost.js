@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import "../Styles/index.css";
 
 function CreatePost(props) {
   let { postList, setPostList } = props;
   console.log(props.setPostList);
+  const navigate = useNavigate();
   let postTitleInput = "";
   let postDescriptionInput = "";
   const handleTitleInput = (e) => {
@@ -13,38 +15,39 @@ function CreatePost(props) {
     postDescriptionInput = e.target.value;
   };
   const handleButton = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     //console.log("hello");
     const post = {
       title: postTitleInput,
       description: postDescriptionInput,
     };
     //console.log(postList);
-    postList.push(post);
+    postList.unshift(post);
     setPostList(props.postList);
+    navigate("/");
   };
   return (
     <div className="create-post">
       <h1>Create Post</h1>
-      {/* <form onSubmit={handleButton}> */}
-      <div className="form-field">
-        <label>Post title</label>
-        <input
-          type="text"
-          placeholder="Enter the blog title"
-          onChange={handleTitleInput}
-        />
-        <label>Post Description</label>
-        <textarea
-          id="post-details"
-          placeholder="Describe your blog here..."
-          onChange={handleDescriptionInput}
-        />
-      </div>
-      <button className="create-post-btn" onClick={handleButton}>
-        Create Post
-      </button>
-      {/* </form> */}
+      <form onSubmit={handleButton}>
+        <div className="form-field">
+          <label>Post title</label>
+          <input
+            type="text"
+            placeholder="Enter the blog title"
+            onChange={handleTitleInput}
+          />
+          <label>Post Description</label>
+          <textarea
+            id="post-details"
+            placeholder="Describe your blog here..."
+            onChange={handleDescriptionInput}
+          />
+        </div>
+        <button className="create-post-btn" onClick={handleButton}>
+          Create Post
+        </button>
+      </form>
     </div>
   );
 }
