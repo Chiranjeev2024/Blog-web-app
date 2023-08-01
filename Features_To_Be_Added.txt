@@ -1,0 +1,18 @@
+Styling of Navbar (done)
+
+Add delete and update button to posts (done)
+
+Click on the blog title to read blog - meassgae in the post (Done)
+
+Logic of Delete Button 
+
+Logic of update button
+
+Form Tag in Create Post
+
+Working Post Details page
+
+Add firebase to the project
+
+
+

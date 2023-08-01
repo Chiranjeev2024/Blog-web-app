@@ -9,7 +9,7 @@ function App() {
       <Navbar />
       <Switch>
         <Route path="/" element={<Home postList={postList} />} />
-        <Route path="/postId" element={<PostDetail />} />
+        <Route path="/postId" element={<PostDetail postList={postList} />} />
         <Route
           path="/createPost"
           element={<CreatePost postList={postList} setPostList={setPostList} />}
