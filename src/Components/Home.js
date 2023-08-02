@@ -1,7 +1,8 @@
 import Post from "./Post";
 import "../Styles/Home_.css";
 function Home(props) {
-  let postList = props.postList;
+  let { postList, setPostList } = props;
+
   if (postList.length === 0) {
     return (
       <div className="home">
@@ -13,8 +14,15 @@ function Home(props) {
   return (
     <div className="home">
       <h1>Blog Web App</h1>
-      {postList.map((post) => {
-        return <Post postTitle={post.title} />;
+      {postList.map((post, index) => {
+        return (
+          <Post
+            postTitle={post.title}
+            setPostList={setPostList}
+            postList={postList}
+            index={index}
+          />
+        );
       })}
     </div>
   );

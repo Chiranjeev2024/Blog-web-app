@@ -8,7 +8,10 @@ function App() {
     <div className="container">
       <Navbar />
       <Switch>
-        <Route path="/" element={<Home postList={postList} />} />
+        <Route
+          path="/"
+          element={<Home postList={postList} setPostList={setPostList} />}
+        />
         <Route path="/postId" element={<PostDetail postList={postList} />} />
         <Route
           path="/createPost"

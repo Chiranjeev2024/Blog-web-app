@@ -3,7 +3,7 @@ import "../Styles/index.css";
 
 function CreatePost(props) {
   let { postList, setPostList } = props;
-  console.log(props.setPostList);
+  // console.log(props.setPostList);
   const navigate = useNavigate();
   let postTitleInput = "";
   let postDescriptionInput = "";
@@ -11,7 +11,7 @@ function CreatePost(props) {
     postTitleInput = e.target.value;
   };
   const handleDescriptionInput = (e) => {
-    console.log("hello");
+    // console.log("hello");
     postDescriptionInput = e.target.value;
   };
   const handleButton = (e) => {
