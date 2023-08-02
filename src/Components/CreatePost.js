@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import "../Styles/index.css";
+import "../Styles/CreatePost.css";
 
 function CreatePost(props) {
   let { postList, setPostList } = props;
@@ -29,21 +29,19 @@ function CreatePost(props) {
   return (
     <div className="create-post">
       <h1>Create Post</h1>
-      <form onSubmit={handleButton}>
-        <div className="form-field">
-          <label>Post title</label>
-          <input
-            type="text"
-            placeholder="Enter the blog title"
-            onChange={handleTitleInput}
-          />
-          <label>Post Description</label>
-          <textarea
-            id="post-details"
-            placeholder="Describe your blog here..."
-            onChange={handleDescriptionInput}
-          />
-        </div>
+      <form onSubmit={handleButton} className="form-field">
+        <label>Post title</label>
+        <input
+          type="text"
+          placeholder="Enter the blog title"
+          onChange={handleTitleInput}
+        />
+        <label>Post Description</label>
+        <textarea
+          id="post-details"
+          placeholder="Describe your blog here..."
+          onChange={handleDescriptionInput}
+        />
         <button className="create-post-btn" onClick={handleButton}>
           Create Post
         </button>

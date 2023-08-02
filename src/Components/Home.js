@@ -1,7 +1,7 @@
 import Post from "./Post";
 import "../Styles/Home_.css";
 function Home(props) {
-  let { postList, setPostList } = props;
+  let { postList, setPostList, setExtraMessage } = props;
 
   if (postList.length === 0) {
     return (
@@ -21,6 +21,8 @@ function Home(props) {
             setPostList={setPostList}
             postList={postList}
             index={index}
+            key={index}
+            setExtraMessage={setExtraMessage}
           />
         );
       })}
