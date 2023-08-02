@@ -15,7 +15,7 @@ Add about blog author ---------------- (Done)
 
 Make the fields in the form compulsory to be filled  ---------------- (Done)
 
-Logic of update button
+Logic of update button ---------------- (Done)
 
 Working Post Details page
 
