@@ -11,13 +11,13 @@ Form Tag in Create Post, Imporve Working of Create Post  ---------------- (Done)
 
 Logic of Delete Button ---------------- (Done)
 
-Working Post Details page
+Add about blog author ---------------- (Done)
+
+Make the fields in the form compulsory to be filled  ---------------- (Done)
 
 Logic of update button
 
 Working Post Details page
-
-Add about blog author
 
 Add firebase to the project
 

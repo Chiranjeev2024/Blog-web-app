@@ -18,6 +18,7 @@ function Home(props) {
         return (
           <Post
             postTitle={post.title}
+            author={post.author}
             setPostList={setPostList}
             postList={postList}
             index={index}

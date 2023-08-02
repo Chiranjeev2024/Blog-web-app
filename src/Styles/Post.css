@@ -8,11 +8,26 @@
   padding: 10px 10px;
   border-radius: 15px;
   margin-top: 10px;
+  flex-wrap: wrap;
 }
 
 .post a {
   text-decoration: none;
 }
+.post .blog-decription-ctn {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: first baseline;
+  width: 50%;
+}
+.post .blog-decription-ctn p {
+  font-size: large;
+  margin-top: 0px;
+  width: 200px;
+  text-align: left;
+}
+
 .post h3 {
   margin: 0;
   padding: 0;
