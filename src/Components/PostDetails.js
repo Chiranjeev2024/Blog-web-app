@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 
 function PostDetail(props) {
-  let { postList, setPostList } = props;
+  let { postList } = props;
 
   let { pos } = useParams();
   if (postList[pos] === undefined) {
