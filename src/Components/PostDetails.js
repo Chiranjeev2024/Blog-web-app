@@ -13,7 +13,7 @@ function PostDetail(props) {
     <div className="post-detail">
       <h1>{title}</h1>
       <p id="blog-by">By-{author}</p>
-      <p>{description}</p>
+      <textarea readOnly>{description}</textarea>
     </div>
   );
 }

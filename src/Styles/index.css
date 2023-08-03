@@ -25,3 +25,13 @@ code {
   text-align: center;
   margin: 0;
 }
+
+.post-detail textarea {
+  border: 1px solid #e1e1e1;
+  height: 500px;
+  width: 100%;
+  font-size: 18px;
+  padding-left: 10px;
+  border-radius: 3px;
+  padding-top: 5px;
+}
