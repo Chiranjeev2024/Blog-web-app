@@ -13,10 +13,15 @@ code {
 }
 
 #blog-by {
-  text-align: center;
+  text-align: right;
   font-style: italic;
   margin-bottom: 20px;
 }
 .post-detail h1 {
   text-align: center;
+  margin: 0;
+}
+.post-detail p {
+  text-align: center;
+  margin: 0;
 }

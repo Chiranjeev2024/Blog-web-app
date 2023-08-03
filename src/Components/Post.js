@@ -18,11 +18,14 @@ function Post(props) {
   const handleUpdate = () => {
     navigate(`/updatePost/${index}`);
   };
+  const handleTitleClick = () => {
+    navigate(`/postDetail/${index}`);
+  };
   // console.log(author);
   return (
     <div className="post">
       <div className="blog-decription-ctn">
-        <h3>{postTitle}</h3>
+        <h3 onClick={handleTitleClick}>{postTitle}</h3>
         <p>Blog By - {author}</p>
       </div>
       <p id="message">Click on the blog title to read the post</p>
