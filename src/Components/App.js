@@ -2,7 +2,7 @@ import "../Styles/App.css";
 import { useEffect, useState } from "react";
 import { Routes as Switch, Route } from "react-router-dom";
 import { Navbar, Home, PostDetail, CreatePost, UpdatePost } from "./";
-import { collection, getDocs, onSnapshot } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase";
 
 function App() {

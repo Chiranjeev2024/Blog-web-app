@@ -4,8 +4,7 @@ import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
 
 function Post(props) {
-  let { postTitle, Author, postList, setPostList, index, setExtraMessage } =
-    props;
+  let { postTitle, Author, postList, index, setExtraMessage } = props;
   const navigate = useNavigate();
   const handleDelete = async () => {
     console.log("Delete Button Pressed");

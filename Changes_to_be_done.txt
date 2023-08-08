@@ -19,7 +19,7 @@ Logic of update button ---------------- (Done)
 
 Working Post Details page ---------------- (Done)
 
-Add firebase to the project
+Add firebase to the project  ---------------- (Done)
 
 
 
