@@ -7,13 +7,13 @@ function PostDetail(props) {
   if (postList[pos] === undefined) {
     return <h1>No Such Post Exist</h1>;
   }
-  let { title, description, author } = postList[pos];
+  let { Title, Description, Author } = postList[pos];
 
   return (
     <div className="post-detail">
-      <h1>{title}</h1>
-      <p id="blog-by">By-{author}</p>
-      <textarea readOnly>{description}</textarea>
+      <h1>{Title}</h1>
+      <p id="blog-by">By-{Author}</p>
+      <textarea defaultValue={Description} readOnly></textarea>
     </div>
   );
 }

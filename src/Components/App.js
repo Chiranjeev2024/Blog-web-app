@@ -1,11 +1,39 @@
 import "../Styles/App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Routes as Switch, Route } from "react-router-dom";
 import { Navbar, Home, PostDetail, CreatePost, UpdatePost } from "./";
+import { collection, getDocs, onSnapshot } from "firebase/firestore";
+import { db } from "../firebase";
 
 function App() {
   let [postList, setPostList] = useState([]);
   let [extraMessage, setExtraMessage] = useState("");
+  useEffect(() => {
+    const loadBlogs = async () => {
+      // const querySnapshot = await getDocs(collection(db, "Blog"));
+      // let blogLoader = querySnapshot.docs.map((doc) => {
+      //   return {
+      //     id: doc.id,
+      //     ...doc.data(),
+      //   };
+      // });
+      // console.log(blogLoader);
+      // blogLoader.sort((a, b) => b.createdOn - a.createdOn);
+      // setPostList(blogLoader);
+      onSnapshot(collection(db, "Blog"), (querySnapshot) => {
+        let blogLoader = querySnapshot.docs.map((doc) => {
+          return {
+            id: doc.id,
+            ...doc.data(),
+          };
+        });
+        console.log(blogLoader);
+        blogLoader.sort((a, b) => b.createdOn - a.createdOn);
+        setPostList(blogLoader);
+      });
+    };
+    loadBlogs();
+  }, []);
   return (
     <div className="container">
       <Navbar />

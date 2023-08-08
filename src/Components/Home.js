@@ -17,8 +17,8 @@ function Home(props) {
       {postList.map((post, index) => {
         return (
           <Post
-            postTitle={post.title}
-            author={post.author}
+            postTitle={post.Title}
+            Author={post.Author}
             setPostList={setPostList}
             postList={postList}
             index={index}

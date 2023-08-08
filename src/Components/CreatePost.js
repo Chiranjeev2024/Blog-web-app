@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "../Styles/CreatePost.css";
-
+import { collection, doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase";
 function CreatePost(props) {
   let { postList, setPostList } = props;
   // console.log(props.setPostList);
@@ -17,16 +18,42 @@ function CreatePost(props) {
   const postAuthorInput = (e) => {
     postAuthor = e.target.value;
   };
+  const addBlogToCloud = async (title, description, author) => {
+    // Add a new document with a generated id.
+    const collectionRef = collection(db, "Blog");
+    // const refOfNewlyCreatedDoc = await addDoc(collectionRef, {
+    //   Title: title,
+    //   Author: author,
+    //   Description: description,
+    //   createdOn: new Date(),
+    // });
+
+    // console.log("Document written with ID: ", refOfNewlyCreatedDoc.id);
+
+    const data = {
+      Title: title,
+      Author: author,
+      Description: description,
+      createdOn: new Date(),
+    };
+    //Create new document with auto id in the collection
+    const newBlogDoc = doc(collectionRef);
+    await setDoc(newBlogDoc, data);
+
+    navigate("/");
+  };
+
   const handleSubmitButton = (e) => {
     e.preventDefault();
     const post = {
-      title: postTitleInput,
-      description: postDescriptionInput,
-      author: postAuthor,
+      Title: postTitleInput,
+      Description: postDescriptionInput,
+      Author: postAuthor,
+      createdOn: new Date(),
     };
     postList.unshift(post);
     setPostList(props.postList);
-    navigate("/");
+    addBlogToCloud(postTitleInput, postDescriptionInput, postAuthor);
   };
   return (
     <div className="create-post">

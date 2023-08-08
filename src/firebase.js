@@ -1,5 +1,9 @@
-import firebase from "firebase/compat/app";
-import "firebase/compat/firestore";
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -11,7 +15,8 @@ const firebaseConfig = {
   appId: "1:416094573689:web:c0978170bc95c65bcc30a8",
 };
 
-// Initialize Firebase - Web Namespaced API version
-firebase.initializeApp(firebaseConfig);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
-export const firestore = firebase.firestore();
+//Initallize CLoud Firestore and get a reference to the service
+export const db = getFirestore(app);

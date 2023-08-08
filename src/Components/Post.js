@@ -1,15 +1,22 @@
 import { useNavigate } from "react-router-dom";
 import "../Styles/Post.css";
+import { deleteDoc, doc } from "firebase/firestore";
+import { db } from "../firebase";
+
 function Post(props) {
-  let { postTitle, author, postList, setPostList, index, setExtraMessage } =
+  let { postTitle, Author, postList, setPostList, index, setExtraMessage } =
     props;
   const navigate = useNavigate();
-  const handleDelete = () => {
+  const handleDelete = async () => {
     console.log("Delete Button Pressed");
-    postList.splice(index, 1);
-    let newPostList = [...postList];
+    //postList.splice(index, 1);
+    //let newPostList = [...postList];
     let extraMessage = `Deleted blog post ${postTitle}`;
-    setPostList(newPostList);
+    //setPostList(newPostList);
+    const blogRef = doc(db, "Blog", postList[index].id);
+
+    await deleteDoc(blogRef);
+
     setExtraMessage(extraMessage);
     setTimeout(() => {
       setExtraMessage("");
@@ -26,7 +33,7 @@ function Post(props) {
     <div className="post">
       <div className="blog-decription-ctn">
         <h3 onClick={handleTitleClick}>{postTitle}</h3>
-        <p>Blog By - {author}</p>
+        <p>Blog By - {Author}</p>
       </div>
       <p id="message">Click on the blog title to read the post</p>
       <div className="btn-ctn">

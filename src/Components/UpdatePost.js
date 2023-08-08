@@ -1,19 +1,31 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "../Styles/UpdatePost.css";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase";
+
 function UpdatePost(props) {
   const { pos } = useParams();
   const navigate = useNavigate();
   let { postList, setPostList, setExtraMessage } = props;
-  let prevTitle = postList[pos].title;
+  let prevTitle = postList[pos].Title;
   let [titleInput, setTitleInput] = useState(prevTitle);
-  let prevDes = postList[pos].description;
+  let prevDes = postList[pos].Description;
   let [desInput, setDesInput] = useState(prevDes);
-  const handleSubmitButton = (e) => {
+  const handleSubmitButton = async (e) => {
     e.preventDefault();
-    postList[pos].title = titleInput;
-    postList[pos].description = desInput;
+    postList[pos].Title = titleInput;
+    postList[pos].Description = desInput;
     setPostList(postList);
+
+    const blogRef = doc(db, "Blog", postList[pos].id);
+
+    await setDoc(
+      blogRef,
+      { Title: titleInput, Description: desInput },
+      { merge: true }
+    );
+
     navigate("/");
     setExtraMessage(`Post ${prevTitle} Updated to ${titleInput}`);
     setTimeout(() => {
