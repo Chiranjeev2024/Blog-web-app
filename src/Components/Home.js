@@ -24,6 +24,7 @@ function Home(props) {
             index={index}
             key={index}
             setExtraMessage={setExtraMessage}
+            date={post.createdOn.toDate()}
           />
         );
       })}
