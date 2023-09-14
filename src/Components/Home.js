@@ -13,7 +13,7 @@ function Home(props) {
   }
   return (
     <div className="home">
-      <h1>Blog Web App</h1>
+      <h1 style={styles.heading}>Blog Web App</h1>
       {postList.map((post, index) => {
         return (
           <Post
@@ -31,5 +31,12 @@ function Home(props) {
     </div>
   );
 }
-
 export default Home;
+const styles = {
+  heading :{
+    marginTop: 30,
+    fontSize: 55,
+    color: "darkred",
+  }
+}
+
