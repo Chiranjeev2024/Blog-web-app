@@ -1,14 +1,23 @@
 import { Link } from "react-router-dom";
 import "../Styles/Navbar.css";
+import styled from "styled-components";
+const StyledLinked = styled(Link)`
+  text-decoration: none;
+  color: #e3dede;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
 function Navbar() {
   return (
     <div className="Navbar">
       <ul id="nav">
         <li>
-          <Link to="/">Home</Link>
+          <StyledLinked to="/">Home</StyledLinked>
         </li>
         <li>
-          <Link to="/createPost">Create Post</Link>
+          <StyledLinked to="/createPost">Create Post</StyledLinked>
         </li>
       </ul>
     </div>

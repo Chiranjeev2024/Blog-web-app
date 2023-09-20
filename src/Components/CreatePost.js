@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 import CreatePostStyles from "../Styles/CreatePost.module.css";
 import { collection, doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
+
+
 function CreatePost(props) {
   let { postList, setPostList } = props;
   // console.log(props.setPostList);
