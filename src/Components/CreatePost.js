@@ -2,7 +2,23 @@ import { useNavigate } from "react-router-dom";
 import CreatePostStyles from "../Styles/CreatePost.module.css";
 import { collection, doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
+import styled from "styled-components";
 
+const AnonymousButton = styled.button`
+  height: 33px;
+  background: blue;
+  border: 0;
+  color: #fff;
+  padding: 8px;
+  font-size: 15px;
+  border-radius: 3px;
+  cursor: pointer;
+  text-align: center;
+  display: ${(props) => (props.login ? "block" : "none")};
+  &:hover {
+    text-decoration: underline;
+  }
+`;
 
 function CreatePost(props) {
   let { postList, setPostList } = props;
@@ -86,6 +102,7 @@ function CreatePost(props) {
           required
         />
         <button className={CreatePostStyles.createPostBtn}>Create Post</button>
+        <AnonymousButton login> Anonymous Post </AnonymousButton>
       </form>
     </div>
   );
