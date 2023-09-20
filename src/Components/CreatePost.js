@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import "../Styles/CreatePost.css";
+import CreatePostStyles from "../Styles/CreatePost.module.css";
 import { collection, doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
 function CreatePost(props) {
@@ -56,9 +56,12 @@ function CreatePost(props) {
     addBlogToCloud(postTitleInput, postDescriptionInput, postAuthor);
   };
   return (
-    <div className="create-post">
+    // <div className="create-post">
+    <div className={CreatePostStyles.createPost}>
       <h1>Create Post</h1>
-      <form onSubmit={handleSubmitButton} className="form-field">
+      <form
+        onSubmit={handleSubmitButton}
+        className={CreatePostStyles.formField}>
         <label>Your Name</label>
         <input
           type="text"
@@ -80,8 +83,7 @@ function CreatePost(props) {
           onChange={handleDescriptionInput}
           required
         />
-
-        <button className="create-post-btn">Create Post</button>
+        <button className={CreatePostStyles.createPostBtn}>Create Post</button>
       </form>
     </div>
   );
