@@ -2,7 +2,36 @@ import { useNavigate } from "react-router-dom";
 import "../Styles/Post.css";
 import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../firebase";
+import styled from "styled-components";
 
+const PostDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 10%;
+  align-items: center;
+  justify-content: space-between;
+  border: 5px double #9f9f9f;
+  padding: 10px 10px;
+  border-radius: 15px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  min-width: 250px;
+
+  .blog-decription-ctn {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: first baseline;
+    width: 50%;
+    p {
+      font-size: large;
+      margin-top: 0px;
+      width: 300px;
+      text-align: left;
+      color: black;
+    }
+  }
+`;
 function Post(props) {
   let { postTitle, Author, postList, index, setExtraMessage, date } = props;
   const navigate = useNavigate();
@@ -43,7 +72,7 @@ function Post(props) {
   const viewableDateTime = `${formattedDate} ${formattedTime}`;
 
   return (
-    <div className="post">
+    <PostDiv className="post">
       <div className="blog-decription-ctn">
         <h3 onClick={handleTitleClick}>{postTitle}</h3>
         <p>Blog By - {Author}</p>
@@ -58,7 +87,7 @@ function Post(props) {
           Delete
         </button>
       </div>
-    </div>
+    </PostDiv>
   );
 }
 

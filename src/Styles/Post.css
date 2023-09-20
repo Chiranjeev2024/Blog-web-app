@@ -1,4 +1,4 @@
-.post {
+/* .post {
   display: flex;
   flex-direction: row;
   padding: 10%;
@@ -12,9 +12,6 @@
   min-width: 250px;
 }
 
-.post a {
-  text-decoration: none;
-}
 .post .blog-decription-ctn {
   display: flex;
   flex-direction: column;
@@ -27,8 +24,11 @@
   margin-top: 0px;
   width: 300px;
   text-align: left;
-}
+} */
 
+.post a {
+  text-decoration: none;
+}
 .post h3 {
   margin: 0;
   padding: 0;
