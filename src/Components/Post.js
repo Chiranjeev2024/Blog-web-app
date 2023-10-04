@@ -33,8 +33,10 @@ const PostDiv = styled.div`
   }
 `;
 function Post(props) {
-  let { postTitle, Author, postList, index, setExtraMessage, date } = props;
   const navigate = useNavigate();
+  //Getting post info from props
+  let { postTitle, Author, postList, index, setExtraMessage, date } = props;
+
   const handleDelete = async () => {
     console.log("Delete Button Pressed");
     //postList.splice(index, 1);
@@ -46,9 +48,9 @@ function Post(props) {
     await deleteDoc(blogRef);
 
     setExtraMessage(extraMessage);
-    setTimeout(() => {
-      setExtraMessage("");
-    }, 3000);
+    // setTimeout(() => {
+    //   setExtraMessage("");
+    // }, 3000);
   };
   const handleUpdate = () => {
     navigate(`/updatePost/${index}`);

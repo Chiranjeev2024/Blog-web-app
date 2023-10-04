@@ -4,10 +4,12 @@ import { Routes as Switch, Route } from "react-router-dom";
 import { Navbar, Home, PostDetail, CreatePost, UpdatePost } from "./";
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   let [postList, setPostList] = useState([]);
-  let [extraMessage, setExtraMessage] = useState("");
+  let [extraMessage, setExtraMessage] = useState("Application Loaded");
   useEffect(() => {
     const loadBlogs = async () => {
       // const querySnapshot = await getDocs(collection(db, "Blog"));
@@ -34,11 +36,15 @@ function App() {
     };
     loadBlogs();
   }, []);
+  useEffect(() => {
+    toast.info(extraMessage, {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+  }, [extraMessage]);
   return (
     <div className="container">
       <Navbar />
-
-      <h3>{extraMessage}</h3>
+      <ToastContainer />
 
       <Switch>
         <Route

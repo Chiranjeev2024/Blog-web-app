@@ -21,7 +21,7 @@ const AnonymousButton = styled.button`
 `;
 
 function CreatePost(props) {
-  let { postList, setPostList } = props;
+  let { postList, setPostList, setExtraMessage } = props;
   // console.log(props.setPostList);
   const navigate = useNavigate();
   let postTitleInput = "";
@@ -59,6 +59,7 @@ function CreatePost(props) {
     await setDoc(newBlogDoc, data);
 
     navigate("/");
+    setExtraMessage(`${title} Post created`);
   };
 
   const handleSubmitButton = (e) => {

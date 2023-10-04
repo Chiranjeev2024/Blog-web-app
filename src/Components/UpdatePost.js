@@ -5,13 +5,19 @@ import { doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
 
 function UpdatePost(props) {
-  const { pos } = useParams();
   const navigate = useNavigate();
+  //Getting Position of the post to be updated from the post array state
+  const { pos } = useParams();
+  //Getting the post array state from props
   let { postList, setPostList, setExtraMessage } = props;
+  //Getting Previous title of the Post which is to be updated
   let prevTitle = postList[pos].Title;
+  //Setting state for contrlled input for update for title
   let [titleInput, setTitleInput] = useState(prevTitle);
+  //Setting state for contrlled input for update for description
   let prevDes = postList[pos].Description;
   let [desInput, setDesInput] = useState(prevDes);
+  //Handle Submit function
   const handleSubmitButton = async (e) => {
     e.preventDefault();
     postList[pos].Title = titleInput;
@@ -27,10 +33,16 @@ function UpdatePost(props) {
     );
 
     navigate("/");
-    setExtraMessage(`Post ${prevTitle} Updated to ${titleInput}`);
-    setTimeout(() => {
-      setExtraMessage("");
-    }, 3000);
+    if (prevTitle !== titleInput)
+      setExtraMessage(`Post ${prevTitle} Updated to ${titleInput}`);
+    else if (prevDes !== desInput) {
+      setExtraMessage(`Post ${prevTitle},  description updated`);
+    } else {
+      setExtraMessage(`No changes made to the Post ${prevTitle}`);
+    }
+    // setTimeout(() => {
+    //   setExtraMessage("");
+    // }, 3000);
   };
   return (
     <div className="update-post">
